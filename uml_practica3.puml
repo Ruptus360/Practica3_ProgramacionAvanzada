@@ -1,0 +1,30 @@
+@startuml uml_practica3
+skinparam classAttributeIconSize 0
+hide empty members
+
+class MatrizFloat {
+  + {static} TIPO_DATO: np.float32
+  # _matriz: np.ndarray
+  # _nfil: int
+  # _ncol: int
+  + <U+005F><U+005F>init<U+005F><U+005F>(): None
+  + {static} matriz_identidad(n: int): MatrizFloat
+  + {static} mismas_dimensiones(m1: MatrizFloat, m2: MatrizFloat): bool
+  + crear_matriz2d(nfil: int, ncol: int): None
+  + crear_matriz1d(nelementos: int): None
+  + existe(): bool
+  + introducir(): None
+  + mostrar(): None
+  + sumar_matrices(otra_matriz: MatrizFloat): MatrizFloat
+  + restar_matrices(otra_matriz: MatrizFloat): MatrizFloat
+}
+
+class "utils" as Utils <<módulo>> {
+  + leer_int(mensaje: str): int
+  + leer_float(mensaje: str): float
+  + crear_menu(opciones_menu: List[str]): int
+}
+
+MatrizFloat ..> Utils : <<usa>>
+
+@enduml
